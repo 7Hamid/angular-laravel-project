@@ -1,0 +1,19 @@
+.about{
+	background-color:#22282a;
+	padding:2rem 8%;
+	display:flex;
+	align-items:center;
+	justify-content:space-around;
+}
+
+.about .container-images{
+	width:35%;
+}
+
+.about .container-images img{
+	width:90%;
+}
+
+.about .container-texts{
+	width:25%;
+}

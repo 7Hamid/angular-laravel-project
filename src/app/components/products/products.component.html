@@ -1,0 +1,87 @@
+<div style="padding: 2%">
+  <div class="card card-primary card-outline">
+        <div class="card-header">
+          <h3 class="card-title">DashBoard</h3>
+        <div class="card-body p-0" style="margin-top: 25px;">
+          <div class="mailbox-controls">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#addModal" class="btn btn-default btn-sm"><i class="fas fa-plus-circle"></i>Add</button>
+            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i><a routerLink="">back</a></button>
+          <div class="table-responsive mailbox-messages">
+            <table class="table">
+              <thead>
+                  <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Image</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Authur</th>
+                      <th scope="col">Price</th>
+                      <th style="float: right;">Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let prod of products">
+                      <th scope="row">{{prod.id}}</th>
+                      <td><img src="{{imageDirectoryPath}}{{prod.image}}" alt="image" height="60px" width="60%"></td>
+                      <td>{{prod.name}}</td>
+                      <td>{{prod.category}}</td>
+                      <td>{{prod.description}}</td>
+                      <td>{{prod.brand}}</td>
+                      <td>{{prod.price}}</td>
+                      <td><button class="btn btn-danger btn-sm" (click)="deleteData(prod.id)">Delete</button></td>
+                      <td><button class="btn btn-warning btn-sm mx-2" routerLink="edit/{{prod.id}}">Update</button></td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </div>
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">add product </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <form (ngSubmit)="onSubmit()">
+              <div class="form-group" [formGroup]="form">
+                <label for="image">upload image</label>
+                <input type="file" formControlName="image" name="image" id="image" 
+                (change)="uploadImage($event)" class="form-control" [ngClass]="{'is-invalid':submitted && f.image.errors}">
+                <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+                  <div *ngIf="f.image.errors.required">
+                    Image is Required 
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">name</label>
+               <input type="text" name="name" class="text form-control" [(ngModel)]="product.name">
+            </div>
+            <div class="form-group">
+                <label for="category">category</label>
+               <input type="text" name="category" class="text form-control" [(ngModel)]="product.category">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+               <input type="text" name="description" class="text form-control" [(ngModel)]="product.description">
+            </div>
+            <div class="form-group">
+                <label for="brand">brand</label>
+               <input type="text" name="brand" class="text form-control" [(ngModel)]="product.brand">
+            </div>
+            <div class="form-group">
+                <label for="price">price</label>
+               <input type="text" name="price" class="text form-control" [(ngModel)]="product.price">
+            </div>
+              <button type="submit" class="btn btn-dark btn -sm mt-4">ADD</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

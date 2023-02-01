@@ -1,0 +1,59 @@
+:root{
+	--color-1:#ff274b;
+	--color-2:#f7bcf7;
+	--lightColor:#ffffff;
+	--bgColor-1:#171a1c;
+	--bgColor-2:#22282a;
+	--padding:8%;
+	
+}
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+html{
+	font-family: 'Josefin Sans', sans-serif;
+	font-size:16px;
+	color:#ffffff;
+}
+
+h1{
+	font-size:4.65rem;
+	margin:1.7rem 0;
+}
+
+h2{
+	font-size:2.2rem;
+	letter-spacing:0.12rem;
+	cursor:pointer;
+}
+
+h3{
+	font-size:1.5rem;
+	margin-bottom:3.5rem;
+}
+
+h4{
+	font-size:1.25rem;
+	letter-spacing:0.12rem;
+	color:#f7bcf7;
+}
+
+h5{
+	font-size:1.37rem;
+	margin-bottom:1.5rem;
+	letter-spacing:2px;
+}
+
+span{
+	color:#ff274b;
+}
+
+p{
+	color:#f7bcf7;
+	letter-spacing:1px;
+	line-height:1.8rem;
+	font-size:1rem;
+}

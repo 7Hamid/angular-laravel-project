@@ -1,0 +1,36 @@
+<div class="container mt-4">
+    <header class="bg-dark text-white p-2 mb-2 text-center">
+        <h1>Login</h1>
+    </header>
+    <form (ngSubmit)="submit()" [formGroup]="form">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" formControlName="email" name="email" class="form-control" 
+            placeholder="Enter Email" [ngClass]="{'is-invalid':submitted && f.email.errors}">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">
+                    email is required
+                </div>
+                <div *ngIf="f.email.errors.email">
+                    email must be a valid email adress
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" name="password" class="form-control" 
+            placeholder="Enter Password" [ngClass]="{'is-invalid':submitted && f.password.errors}">
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.minlength">
+                    password must be atleast 6 characters
+                </div>
+                <div *ngIf="f.password.errors.required">
+                    password is required
+                </div>
+                
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Login</button>
+        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a routerLink="/register" class="btn btn-primary mt-4">Register</a></p>
+    </form>
+</div>

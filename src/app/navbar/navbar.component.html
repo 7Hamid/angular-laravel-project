@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">BookStore</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/products">Add Book</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/aboutus">About Us</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-center">
+          <form class="d-flex" role="search">
+            <div class="input-group input-group-sm">
+              <input  class="form-control form-control-navbar" type="text" placeholder="Search" 
+              aria-label="Search" (input)="getProductSearch($event)" >
+            </div>
+          <div *ngFor="let result of data" (click)="getDetailPage(result)"
+          style="cursor:pointer;">
+            <div class="card card-body mb-1">
+              <h4>{{result.name}}</h4>
+              <small class="text-primary">{{result.category}}</small>
+              <small class="text-primary">{{result.description}}</small>
+              <small class="text-primary">{{result.brand}}</small>
+              <small class="text-primary">{{result.price}}</small>
+            </div>
+          </div>
+        </form>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a routerLink="/products"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>

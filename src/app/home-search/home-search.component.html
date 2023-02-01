@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-4 m-auto">
+            <div class="card mb-3">
+<div class="card-body">
+
+        <h5 class="card-title" style="text-align: right;">
+                     <b>{{itemDetail.name}}</b>
+        </h5>
+        <br>
+        <br>
+                <label>Category : </label>{{itemDetail.category}} <br>
+                <label>Brand : </label>{{itemDetail.brand}} <br>
+                <label>Price : </label>{{itemDetail.price}} <br>
+      
+</div>
+                <img src="assets/dist/img/{{itemDetail.image}}" alt="" style="width:25%;height:25%;">
+                <div class="card-body">
+                    <div class="card-text">
+                        <p>{{itemDetail.description}}</p>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i><a routerLink="">back</a></button>
+        </div>
+    </div>
+</div>
